@@ -1,18 +1,18 @@
-import '@/styles/globals.css'
+import "@/styles/globals.css"
 
 export const metadata = {
-  title: 'Breadit',
-  description: 'A Reddit clone built with Next.js and TypeScript.',
+	title: "Sudut Pandang",
+	description: "Menumbuhkan Dialog, Merangkul Perspektif",
 }
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode
 }) {
-  return (
-    <html lang='en'>
-      <body>{children}</body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body>{children}</body>
+		</html>
+	)
 }
