@@ -3,17 +3,9 @@ import { FC } from 'react'
 import { User as UserType } from 'next-auth'
 import { signOut } from 'next-auth/react'
 
-import {
-	ChevronDown,
-	CreditCard,
-	LogOut,
-	PlusCircle,
-	Settings,
-	User,
-} from 'lucide-react'
+import { CreditCard, LogOut, PlusCircle, Settings, User } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -57,25 +49,30 @@ const UserAvatar: FC<UserAvatarProps> = ({ user }) => {
 					</DropdownMenuItem>
 					<DropdownMenuItem>
 						<CreditCard className='mr-2 h-4 w-4' />
-						<span>Billing</span>
+						<span>Feed</span>
 						<DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						<Settings className='mr-2 h-4 w-4' />
-						<span>Settings</span>
+						<PlusCircle className='mr-2 h-4 w-4' />
+						<span>Buat Komunitas</span>
 						<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						<PlusCircle className='mr-2 h-4 w-4' />
-						<span>New Team</span>
+						<Settings className='mr-2 h-4 w-4' />
+						<span>Setting</span>
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>
+				<DropdownMenuItem
+					onSelect={(event) => {
+						event.preventDefault()
+						signOut({
+							callbackUrl: `${window.location.origin}/sign-in`,
+						})
+					}}
+				>
 					<LogOut className='mr-2 h-4 w-4' />
-					<Button variant='ghost' onClick={() => signOut()}>
-						Log Out
-					</Button>
+					<span>Log out</span>
 					<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
