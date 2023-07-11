@@ -17,6 +17,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { initialName } from '@/lib/utils'
+import Link from 'next/link'
 
 interface UserAvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 	user: Pick<UserType, 'name' | 'image' | 'email'>
@@ -54,7 +55,10 @@ const UserAvatar: FC<UserAvatarProps> = ({ user }) => {
 					</DropdownMenuItem>
 					<DropdownMenuItem>
 						<PlusCircle className='mr-2 h-4 w-4' />
-						<span>Buat Komunitas</span>
+						<Link href='/tribe/create'>
+							<span>Buat Tribe</span>
+						</Link>
+
 						<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
