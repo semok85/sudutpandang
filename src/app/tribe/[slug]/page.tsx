@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { INFINITE_SCROLL_PAGINATION_RESULTS } from '@/config'
 import MiniCreatePost from '@/components/MiniCreatePost'
+import PostFeed from '@/components/PostFeed'
 
 interface PageProps {
 	params: {
@@ -40,7 +41,7 @@ const page = async ({ params }: PageProps) => {
 				Tribe@{tribe.name}
 			</h1>
 			<MiniCreatePost session={session} />
-			{/* <PostFeed initialPosts={subreddit.posts} subredditName={subreddit.name} /> */}
+			<PostFeed initialPosts={tribe.posts} tribeName={tribe.name} />
 		</>
 	)
 }

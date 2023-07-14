@@ -46,7 +46,6 @@ const Editor: FC<EditorProps> = ({ tribeId }) => {
 	const { mutate: createPost } = useMutation({
 		mutationFn: async ({ title, content, tribeId }: PostCreationRequest) => {
 			const payload: PostCreationRequest = { title, content, tribeId }
-			console.log(payload)
 			const { data } = await axios.post('/api/tribe/post/create', payload)
 
 			return data
@@ -174,7 +173,6 @@ const Editor: FC<EditorProps> = ({ tribeId }) => {
 			content: blocks,
 			tribeId,
 		}
-		console.log(payload)
 		createPost(payload)
 	}
 
